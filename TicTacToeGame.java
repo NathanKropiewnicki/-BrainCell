@@ -1,11 +1,11 @@
-public class TicTacToeGame {
-    private Board tttBoard;
+public class TicTacToeGame extends Game{
+    private TTTBoard tttBoard;
     private Player xPlayer, oPlayer;
     private InputOutput ioDevice;
     
     public TicTacToeGame() {
         ioDevice = new InputOutput();
-        tttBoard = new Board();
+        tttBoard = new TTTBoard();
         ioDevice.print("What is the name of the X player? ");
         xPlayer = new Player(ioDevice.nextString(),new Piece(Piece.X));
         ioDevice.flushLine();
@@ -16,7 +16,7 @@ public class TicTacToeGame {
     
     public TicTacToeGame(int size) {
         ioDevice = new InputOutput();
-        tttBoard = new Board(size);
+        tttBoard = new TTTBoard(size);
         ioDevice.print("What is the name of the X player? ");
         xPlayer = new Player(ioDevice.nextString(),new Piece(Piece.X));
         ioDevice.flushLine();
@@ -30,7 +30,7 @@ public class TicTacToeGame {
         String str;
         ioDevice = new InputOutput(filename);
         size = ioDevice.nextInt();
-        tttBoard = new Board(size);
+        tttBoard = new TTTBoard(size);
         ioDevice.flushLine();
         xPlayer = new Player(ioDevice.nextString(),new Piece(Piece.X));
         ioDevice.flushLine();
@@ -45,10 +45,10 @@ public class TicTacToeGame {
         currentPlayer = xPlayer;
         while (!gameOver()) {
             displayBoard();
-            move = getMove(currentPlayer);
+            move = super.getMove(currentPlayer);
             while (!tttBoard.legalMove(move)) {
                 ioDevice.println("Illegal move");
-                move = getMove(currentPlayer);
+                move = super.getMove(currentPlayer);
             }
             tttBoard.makeMove(move, currentPlayer);
             if (currentPlayer == xPlayer) currentPlayer = oPlayer;
@@ -60,20 +60,12 @@ public class TicTacToeGame {
         else ioDevice.println(oPlayer.getName()+" is the winner.");
     }
     
-    private Move getMove(Player player) {
-        Move move;
-        ioDevice.print("It is "+player.getName()+"'s move: ");
-        move = new Move(ioDevice.nextInt(),ioDevice.nextInt());
-        ioDevice.flushLine();
-        return move;
-    }
-    
     private boolean gameOver() {
         if (tttBoard.winner(xPlayer) || tttBoard.winner(oPlayer)) return true;
         return false;
     }
-    
     private void displayBoard() {
         ioDevice.print(tttBoard.toString());
     }
+
 }
