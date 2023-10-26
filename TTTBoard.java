@@ -1,30 +1,28 @@
 public class TTTBoard extends Board {
     public static final int DEFAULTSIZE = 3;
-    private Piece[][] myBoard;
+
     
-       
-    private void initBoard() {
-        int row, column;
-        
-        for (row = 0; row < myBoard.length; row++)
-            for (column = 0; column < myBoard[0].length; column++) 
-                myBoard[row][column] = new Piece(Piece.BLANK);
+    public TTTBoard() {
+        super();
+        //myBoard = new Piece[DEFAULTSIZE][DEFAULTSIZE];
+        //initBoard();
     }
-    
+    public TTTBoard(int size) {
+        super(size);
+        //myBoard = new Piece[size][size];
+        //initBoard();
+    }   
+        
     public boolean legalMove(Move move) {
         int row, column;
         
         row = move.getRow();
         column = move.getColumn();
-        if (row < 0) return false;
-        if (column < 0) return false;
-        if (row >= myBoard.length) return false;
-        if (column >= myBoard.length) return false;
-        if (myBoard[row][column].isAvailable()) return true;
+        if (super.legalMove(move) && myBoard[row][column].isAvailable()) return true;
         return false;
     }
     
-    public void makeMove(Move move, Player player) {
+    public  void makeMove(Move move, Player player) {
         myBoard[move.getRow()][move.getColumn()] = player.getPiece();
     }
     
