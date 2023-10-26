@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class GameDrive {
+public class GameDriver {
     public static void main(String[] args) {
         TicTacToeGame myGame;
         InputOutput scanner;
