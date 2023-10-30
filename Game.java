@@ -1,6 +1,14 @@
+/****************************************
+/* Author: Teacher
+/* Course: CSC 221, Fall 2023
+/* Lab: Inheritance Group Lab
+/* Modified: October 29th 2023
+/* Modified by Nick Bohm
+*****************************************/
+
 public class Game{
    
-    private InputOutput ioDevice;
+    protected InputOutput ioDevice;
     public Game(){
         ioDevice = new InputOutput();
     }
