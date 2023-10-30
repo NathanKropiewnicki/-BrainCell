@@ -35,6 +35,12 @@ public class GameDriver {
            size = scanner.nextInt();
            tttGame = new TicTacToeGame(size);
            tttGame.playGame();
+        }
+        if(answer === 2){
+            System.out.println("press1 for default board");
+            System.out.println("press 2 for custom board");
+            answer  = scanner.nextInt();
+            
            
         
     }
