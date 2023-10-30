@@ -12,7 +12,7 @@ public class ReversiGame extends Game {
     
     public ReversiGame(){
         ioDevice = new InputOutput();
-        reversiboard = new ReversiBoard(); // This line should initialize reversiboard correctly
+        reversiboard = new ReversiBoard(); 
         ioDevice.print("what is the name of player w");
         wPlayer = new Player(ioDevice.nextString(),new Piece(Piece.W));
         ioDevice.flushLine();
