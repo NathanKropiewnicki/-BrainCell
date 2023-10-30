@@ -1,5 +1,13 @@
+/****************************************
+/* Author: Teacher
+/* Course: CSC 221, Fall 2023
+/* Lab: Inheritance Group Lab
+/* Modified: October 29th 2023
+/* Modified by Nick Bohm
+*****************************************/
+
 public class Board{
- protected Piece[][] myBoard;
+protected Piece[][] myBoard;
 
  public Board() {
         myBoard = new Piece[3][3];
@@ -42,4 +50,6 @@ public class Board{
         }
         return result;
     }
-}
+}    
+
+    
