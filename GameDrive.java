@@ -1,37 +1,41 @@
+/****************************************
+/* Author: Teacher
+/* Course: CSC 221, Fall 2023
+/* Lab: Inheritance Group Lab
+/* Modified: October 29th 2023
+/* Modified by Nick Bohm,MicahYoder,Nathan Kropiewnicki
+*****************************************/
+
 import java.io.*;
 import java.util.*;
 public class GameDriver {
     public static void main(String[] args) {
-        TicTacToeGame myGame;
+        TicTacToeGame tttGame;
+        ReversiGame RGame;
+        Connect4Game CGame;
+        ChekcersGame ChGame;
         InputOutput scanner;
-        int option;
+        int choice;
         int size;
         String filename;
-        scanner  = new InputOutput();
-        
-        System.out.println("1 for 3x3");
-        System.out.println("2 for your choice of size");
-        System.out.println("Press 3 to read from file");
-        
-        option = scanner.nextInt();
-               
-        if(option == 1){
-            myGame = new TicTacToeGame();
-             myGame.playGame();
-        }
-        else if(option == 2){
-            System.out.println("enter board size");
-            size = scanner.nextInt();
-            myGame = new TicTacToeGame(size);
-             myGame.playGame();
-        }
-        else if(option == 3){
-            System.out.println("enter file name");
-            filename = scanner.nextString();
-            myGame = new TicTacToeGame(filename);
-             myGame.playGame();
-        }
+        System.out.println("press 1 for tictactoe");
+        System.out.println("press2 for Reversi");
+        System.out.println("press 3 for connect4");
+        System.out.println("press 4 for checkers");
+        answer = scanner.nextInt();
+        if(answer == 1){
+            System.out.println("press 1 for a default board");
+            System.out.println("press 2 for a custom board");
+            answer = scanner.nextInt();
+        if(answer == 1){
+            tttGame = new TicTacToeGame();
+            tttGame.playGame();
+        }else{
+           System.out.println("what board size?");
+           size = scanner.nextInt();
+           tttGame = new TicTacToeGame(size);
+           tttGame.playGame();
            
         
     }
-}
+  
